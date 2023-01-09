@@ -9,16 +9,19 @@ const ExpensesList = (props) => {
   }
 
   if (props.items.length === 1) {
-    return <h2 className="expenses-list__fallback">Only single Expense here. Please add more...</h2>;
+    var singleExpense = (
+      <h2 className="expenses-list__fallback">
+        Only single Expense here. Please add more...
+      </h2>
+    );
   }
 
   return (
     <ul className="expenses-list">
-      {
-        (props.items.map((props) => (
-          <ExpenseItem key={props.title} props={props} />
-        )))
-      }
+      {props.items.map((props) => (
+        <ExpenseItem key={props.title} props={props} />
+      ))}
+      {singleExpense}
     </ul>
   );
 };
